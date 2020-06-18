@@ -1,0 +1,55 @@
+TEMA PROIECTAREA ALGORITMILOR - PETRE ALEXANDRA 325CB
+
+------------------------------PROBLEMA 1-----------------------------------
+
+	Am creat o lista de perechi (x,y), unde x este distanta fata de nodul
+1, valoare luata din vectorul primit si y este indexul. Am sortat acest
+vector de perchi pentru a putea sa construiesc graful si pentru
+a verifica daca este posibila construirea lui. 
+	Daca diferenta intre distnta de la indexul curent si distanta 
+indexului urmator e mai mare ca 1, inseamna ca nu se poate ajunge la nodul
+acela si trebuie sa intorc -1.
+	Daca distanta este 1, inseamna ca se va schimba nodul soursa de la care
+construiesc muchiile. Am folosit si un vector de perechi in care am stochat
+nodurile muchiei construite. Se actualizeaza minimul la fiecare iteratie,
+pentru a compara mereu diferenta cu elementul curent.
+
+Implementare:
+			-am creat o noua clasa Pair care are campurile int x, int y.
+			-am parcurs o data vectorul de perechi in functia getResult.
+			-functia getResult intoarce un boolean, deci daca intoarce
+			false inseamna ca ori sunt doua elemente sau mai multe
+			cu distanta intre ele 0 (exista doar un nod sursa), sau 
+			diferenta dintre nodul curent si urmatorul este mai mare 
+			ca 1.
+			-daca functia getResult intorcea true, inseamna ca
+			se poate construi vectorul dupa acele reguli, si am
+			parcurs lista de muchii (adj), si le-am scris in fisier.
+
+Complexitatea temporala : O(n) - parcurgerea vectorului.
+Complexitatea spatiala : O(2n) - cei 2 vectori de perechi. 
+
+
+------------------------------PROBLEMA 2-----------------------------------
+
+	Am parcurs matricea iar pentru fiecare element(nod), am parcurs matricea
+ca pe un graf, si am folosit parcurgerea bfs cu mai multe restrictii. 
+
+** Am creat o clasa noua Element care avea campurile: int value, int posX 
+													int posY.
+
+**  In functia bfs : - am creat la fiecare nod o matricea de vizitari
+					 - pentru fiecare nod, am verificat unde se afla
+					 (colt, bordura sau in mijloc) si pentru fiecare am
+					 verificat daca pot adauga in coada rezultat vecinii 
+					 sai (daca diferenta k nu este afectata).
+					 In functie de caz am creat 2,3 sau 4 variabile de tipul
+					 Element pentru a verifica conditia cu diferenta intre
+					 min si max. Am adaugat si in coada initiala q cea
+					 pe care o parcurg bfs, nodurile care indeplinesc conditia
+
+					 Rezultatul este dimensiunea cozii result, cea in
+					 care aduag numai nodurile bune.
+
+Complexitate temporala :  O(m*n) - parcurgerea matricei.
+Complexitate spatiala : O(2m*n) - matricea si matricea de vizitari.
